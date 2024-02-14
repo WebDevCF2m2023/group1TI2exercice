@@ -1,1 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 
+nav {
+    background-color: transparent;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 30px;
+
+}
+
+li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+/*Ajoute une bordure rouge en dessous des liens li*/
+li a:hover {
+    border-bottom: 2px solid whitesmoke;
+}
