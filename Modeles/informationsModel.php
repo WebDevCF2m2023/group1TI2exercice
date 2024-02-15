@@ -10,19 +10,19 @@ function getInformations(PDO $db):array
 }
 
 // notre fonction qui insert dans informations
-function addInformations(PDO $db, string $theid, string $themail, string $themessage, string $thedate): bool|string
+function addInformations(PDO $db, string $themail, string $themessage, string $thedate): bool|string
 {
-    $theid = htmlspecialchars(strip_tags(trim($theid)), ENT_QUOTES);
+    
     $themail = filter_var($themail, FILTER_VALIDATE_EMAIL);
     $themessage = htmlspecialchars(strip_tags($themessage), ENT_QUOTES);
     $thedate = htmlspecialchars(strip_tags(trim($thedate)), ENT_QUOTES);
 
     
-    if (empty($theid) || $themail === false || empty($themessage) || empty($thedate)) {
+    if ( $themail === false || empty($themessage) || empty($thedate)) {
         return false;
     }
     
-    $sql = "INSERT INTO informations (theid, themail, themessage, thedate) VALUES ('$theid', '$themail', '$themessage', '$thedate')";
+    $sql = "INSERT INTO informations ( themail, themessage, thedate) VALUES ('$themail', '$themessage', '$thedate')";
     try {
         
         $db->exec($sql);

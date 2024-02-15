@@ -3,6 +3,7 @@
 // Chargement des dépendances
 require_once '../config.php';
 require_once '../Modeles/informationsModel.php';
+
 // Connexion à la base de donnée
 try {
     
@@ -12,26 +13,30 @@ try {
 }
 
 // Si le formulaire a été envoyé
-if (isset($_POST['theid'], $_POST['themail'], $_POST['themessage'], $_POST['thedate'])) {
 
-    
-    //$insert = addComments($db, $_POST['theid'], $_POST['themail'], $_POST['themessage'], $_POST['thedate']);//
-    
+// On insert dans la table `informations` si valide
+if (isset( $_POST['themail'], $_POST['themessage'], $_POST['thedate'])) {
+
+    // on appelle la fonction d'insertion dans la DB
+    $insert = addInformations($db, $_POST['themail'], $_POST['themessage'], $_POST['thedate']);
+
     if ($insert) {
-        
-        header("Location: ./?section=livredor");
+        // on redirige vers la page actuelle
+        header("Location: ./");
         exit();
     } else {
-        
+        // sinon, on affiche un message d'erreur
         $message = "Erreur lors de l'insertion";
     }
+   
 }
 
-    // On insert dans la table `informations` si valide
+    
 
 // on récupère toutes les entrées de la table
 // `informations`
-
+$informations = getInformations($db);
 // on charge le template qui affiche la vue
 include_once "../vues/informations.vue.html.php";
 // on ferme la connexion 
+$db = null; 
