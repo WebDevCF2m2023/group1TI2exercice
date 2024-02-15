@@ -14,14 +14,14 @@ try {
 
 
 
-if (isset($_POST['theid'], $_POST['themail'], $_POST['themessage'], $_POST['thedate'])) {
+if (isset ($_POST['themail'], $_POST['themessage'])) {
 
     
-    $insert = addComments($db, $_POST['theid'], $_POST['themail'], $_POST['themessage'], $_POST['thedate']);
+    $insert = addInformations($db, $_POST['themail'], $_POST['themessage']);
     
     if ($insert) {
         
-        header("Location: ./?section=livredor");
+        header("Location: ./r");
         exit();
     } else {
         
@@ -30,7 +30,7 @@ if (isset($_POST['theid'], $_POST['themail'], $_POST['themessage'], $_POST['thed
 }
 
 
-$comments = getInformations($db);
+$informations = getInformations($db);
 
 
-$db = null;
+include_once "../Vues/information.vue.html.php";
