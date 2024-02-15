@@ -1,35 +1,25 @@
 <?php
 // Notre fonction qui charge les informations
-function getInformations(PDO $db):array
+function getInformations(PDO $db): array
 {
-    $sql = "SELECT * FROM informations";
+    $sql = "SELECT * FROM `informations`";
     $query = $db->query($sql);
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
     $query->closeCursor();
-    return $result;
+    return $results;
 }
 
 // notre fonction qui insert dans informations
-function addInformations(PDO $db, string $themail, string $themessage, string $thedate): bool|string
+function addInformations(PDO $db, string $mail, string $message)
 {
-    
-    $themail = filter_var($themail, FILTER_VALIDATE_EMAIL);
-    $themessage = htmlspecialchars(strip_tags($themessage), ENT_QUOTES);
-    $thedate = htmlspecialchars(strip_tags(trim($thedate)), ENT_QUOTES);
-
-    
-    if ( $themail === false || empty($themessage) || empty($thedate)) {
-        return false;
+    $sql = "INSERT INTO `informations`(`themail`, `themessage`) VALUES(?,?)";
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        return 1;
     }
-    
-    $sql = "INSERT INTO informations ( themail, themessage, thedate) VALUES ('$themail', '$themessage', '$thedate')";
-    try {
-        
-        $db->exec($sql);
-        
-        return true;
-    } catch (Exception $e) {
-        
-        return $e->getMessage();
-    }
+    $prepare = $db->prepare($sql);
+    $prepare->bindValue(1, htmlspecialchars($mail), PDO::PARAM_STR);
+    $prepare->bindValue(2, htmlspecialchars($message), PDO::PARAM_STR);
+    $prepare->execute();
+    $prepare->closeCursor();
+    return 0;
 }

@@ -1,42 +1,29 @@
 <?php
 
 // Chargement des dépendances
-require_once '../config.php';
-require_once '../Modeles/informationsModel.php';
+require_once("../config.php");
+require_once("../Modeles/informationsModel.php");
 
 // Connexion à la base de donnée
-try {
-    
-    $db = new PDO(MY_DB_DRIVER . ":host=" . MY_DB_HOST . ";dbname=" . MY_DB_NAME . ";charset=" . MY_DB_CHARSET . ";port=" . MY_DB_PORT, MY_DB_LOGIN, MY_DB_PWD);
-} catch (Exception $e) {
-    die($e->getMessage());
-}
+$db = MY_DB_DRIVER . ":host=" . MY_DB_HOST . ";dbname=" . MY_DB_NAME . ";charset=" . MY_DB_CHARSET . ";port=" . MY_DB_PORT;
+$db_connect = new PDO($db, MY_DB_LOGIN, MY_DB_PWD);
 
 // Si le formulaire a été envoyé
-
-// On insert dans la table `informations` si valide
-if (isset( $_POST['themail'], $_POST['themessage'], $_POST['thedate'])) {
-
-    // on appelle la fonction d'insertion dans la DB
-    $insert = addInformations($db, $_POST['themail'], $_POST['themessage'], $_POST['thedate']);
-
-    if ($insert) {
-        // on redirige vers la page actuelle
-        header("Location: ./");
-        exit();
+$erreur_message = "";
+if (!empty($_POST["mail"]) && !empty($_POST["message"])) {
+    // On insert dans la table `informations` si valide
+    if (addInformations($db_connect, $_POST["mail"], $_POST["message"])) {
+        $erreur_message = "erreur lors de l'insertion";
     } else {
-        // sinon, on affiche un message d'erreur
-        $message = "Erreur lors de l'insertion";
+        header("Location: ./");
+        die;
     }
-   
 }
-
-    
-
-// on récupère toutes les entrées de la table
 // `informations`
-$informations = getInformations($db);
+$informations = getInformations($db_connect);
+
 // on charge le template qui affiche la vue
-include_once "../vues/informations.vue.html.php";
+include("../Vues/informations.vue.html.php");
+
 // on ferme la connexion 
-$db = null; 
+$db_connect = null;

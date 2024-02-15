@@ -1,9 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-  
-    }
-
+    background-color: black;
+}
 
 nav {
     background-color: transparent;
@@ -11,7 +10,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background-color: #CDDFA0;
 
 
 }
@@ -29,12 +28,80 @@ li {
 
 li a {
     text-decoration: none;
-    color: #fff;
+    color: black;
     font-family: 'Inter', sans-serif;
 }
 
 /*Ajoute une bordure rouge en dessous des liens li*/
 li a:hover {
-    border-bottom: 2px solid whitesmoke;
+    border-bottom: 2px solid #78586F;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    border-radius: 50px;
+    background-color: #CDDFA0;
+    font-size: 1.5em;
+}
+
+/*.bloc:first-child {
+    margin-top: 50px;
+}
+
+.bloc:last-child {
+    margin-bottom: 50px;
+}
+*/
+.bloc {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10px 0;
+}
+
+.bloc>input {
+    width: 50%;
+}
+
+
+input[type=submit] {
+    cursor: pointer;
+    align-self: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    color: rgb(192, 192, 192);
+    background-color: #78586F;
+}
+
+input[type=submit]:hover {
+    background-color: black;
+    color: white;
+}
+
+#commentaires {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: auto;
+    margin-top: 30px;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #78586F;
+    font-size: 1em;
+}
+
+.message {
+    margin-left: 10%;
+}
+
+#erreur-message {
+    text-align: center;
+    color: #d90429;
+    font-size: 1.1em;
+}

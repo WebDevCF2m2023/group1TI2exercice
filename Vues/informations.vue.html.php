@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/MyCSS.css">
     <title>Informations</title>
+    <link rel="stylesheet" href="/css/MyCSS.css">
 </head>
+
 <body>
-<nav >
+    <nav>
         <ul>
-                <li><a href="./">Accueil</a></li>
-                <li><a  href="?section=travaux">Travaux</a></li>
-                <li><a href="?section=contact">Contact</a></li>
-                <li><a  href="?section=livredor">Livre d'or</a></li>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="?section=travaux">Travaux</a></li>
+            <li><a href="?section=contact">Contact</a></li>
+            <li><a href="?section=livredor">Livre d'or</a></li>
 
-            </ul>
-</nav>
-<form action=""method="POST" id="formContainer">
+        </ul>
+    </nav>
+    <div id="commentaires">
+        <?php foreach ($informations as $information) : ?>
+            <div class="message">
+                <h2><?= $information["thedate"] ?></h2>
+                <p><?= $information["themessage"] ?></p>
+                <hr>
+            </div>
 
-<div id="leNom">
-    <label for="nom">Nom:</label>
-    <input type="text" name="nom" id="nom">
-</div>
-<div id="laDate">
-    <label for="age">Date de naissance:</label>
-    <input type="date" name="age" id="age">
-</div>
-<div id="leMdp">
-    <label for="mdp">Mot de passe:</label>
-    <input type="password" name="mdp" id="mdp" oninput="checkPassword()" required>
-</div>
+        <?php endforeach ?>
+    </div>
+    <p id="erreur-message"><?= $erreur_message ?></p>
+    <form action="./" method="post">
+        <div class="bloc">
+            <label for="email">email</label>
+            <input type="email" name="mail" id="mail">
+        </div>
 
+        <div class="bloc">
+            <label for="message">message</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
+        <div class="bloc">
+            <input type="submit" value="envoyer">
+        </div>
+    </form>
 
-<div id="bouton">
-    <input type="submit" value="Envoyez" onclick="submitForm()">
-</div>
-
-</form>
 </body>
+
 </html>
