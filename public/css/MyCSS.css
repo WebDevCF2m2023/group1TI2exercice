@@ -10,7 +10,8 @@ h1 {
 
 label {
     font-size: 1em;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(219, 217, 217);
 }
 
 form {
