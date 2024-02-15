@@ -12,15 +12,15 @@
         <div>
         <div id="colGauche">
             <div id="leNom">
-                <label for="nom">Nom :</label>
+                <label for="nom">Nom</label>
                 <input type="text" name="nom" id="nom" required>
             </div>
             <div id="lePrenom">
-                <label for="prenom">Prénom :</label>
+                <label for="prenom">Prénom</label>
                 <input type="text" name="prenom" id="prenom" required>
             </div>
             <div id="ddn">
-                <label for="ddn">Date de naissance :</label>
+                <label for="ddn">Date de naissance</label>
                 <input type="date" id="date" name="user_ddn" required>
             </div>
             <div id="leGenre">
@@ -56,7 +56,7 @@
                 <input type="email" id="email" name="themail" required>
             </div>
             <div id="password">
-                <label for="password">Mots de passe</label>
+                <label for="password">Password</label>
                 <input type="password" id="passWord" name="password" required>
             </div>
             <div id="lemessage">
