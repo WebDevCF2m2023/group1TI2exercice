@@ -16,9 +16,9 @@ function validateForm(e){
         e.preventDefault();
         alert (" Vous n'êtes pas majeur");
     }
-    if  (age > 120){
+    if  (age > 110){
         e.preventDefault();
-        alert (" Vous etes trop vieux papy");
+        alert (" Vous avez dépassé l'âge");
     } 
 
     if (!lengthCheck || !uppercaseCheck || !numberCheck || !symbolCheck) {

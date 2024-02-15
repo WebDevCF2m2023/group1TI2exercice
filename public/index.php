@@ -33,4 +33,4 @@ if (isset ($_POST['themail'], $_POST['themessage'])) {
 $informations = getInformations($db);
 
 
-include_once "../Vues/information.vue.html.php";
+include_once "../Vues/informations.vue.html.php";
