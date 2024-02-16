@@ -18,17 +18,8 @@
 
         </ul>
     </nav>
-    <div id="commentaires">
-        <?php foreach ($informations as $information) : ?>
-            <div class="message">
-                <h2><?= $information["thedate"] ?></h2>
-                <p><?= $information["themessage"] ?></p>
-                <hr>
-            </div>
-
-        <?php endforeach ?>
-    </div>
-    <p id="erreur-message"><?= $erreur_message ?></p>
+   
+   
     <form action="./" method="post">
         <div class="bloc">
             <label for="email">email</label>
@@ -43,7 +34,18 @@
             <input type="submit" value="envoyer">
         </div>
     </form>
+    <p id="erreur-message"><?= $erreur_message ?></p>
 
+    <div id="commentaires">
+        <?php foreach ($informations as $information) : ?>
+            <div class="message">
+                <h2><?= $information["thedate"] ?></h2>
+                <p><?= $information["themessage"] ?></p>
+                <hr>
+            </div>
+
+        <?php endforeach ?>
+    </div>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: rgba(245, 245, 245, 0.7);
 }
 
 nav {
@@ -10,7 +10,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #CDDFA0;
+    background-color: #06070E;
 
 
 }
@@ -28,34 +28,40 @@ li {
 
 li a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
+    font-weight: bold;
     font-family: 'Inter', sans-serif;
 }
 
 /*Ajoute une bordure rouge en dessous des liens li*/
 li a:hover {
-    border-bottom: 2px solid #78586F;
+    border-bottom: 2px solid lightgreen;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: auto;
-    width: 50%;
-    border-radius: 50px;
-    background-color: #CDDFA0;
+    margin-top: 120px;
+    height: 15em;
+    width: 20em;
+    border-radius: 25px;
+    background-color: #06070E;
+    color: white;
     font-size: 1.5em;
+    box-shadow: 0 0 10px #06070E,
+                0 0 25px #06070E;
 }
-
-/*.bloc:first-child {
-    margin-top: 50px;
+#message{
+    background-color: hsl(274, 3%, 50%);
+    width: 70%;
+    border-radius: 10px;
 }
-
-.bloc:last-child {
-    margin-bottom: 50px;
+label{
+    margin-bottom: 15px;
 }
-*/
 .bloc {
     display: flex;
     flex-direction: column;
@@ -64,7 +70,9 @@ form {
 }
 
 .bloc>input {
-    width: 50%;
+   background-color: #7F7B82;
+    width: 70%;
+    border-radius: 10px;
 }
 
 
@@ -75,13 +83,14 @@ input[type=submit] {
     padding: 10px;
     border: none;
     border-radius: 15px;
-    color: rgb(192, 192, 192);
-    background-color: #78586F;
+    color: #06070E;
+    background-color: #C2B8B2;
+    margin-top: 20px;
 }
 
 input[type=submit]:hover {
-    background-color: black;
-    color: white;
+    background-color: lightgreen;
+    color: #06070E;
 }
 
 #commentaires {
@@ -89,13 +98,21 @@ input[type=submit]:hover {
     flex-direction: column;
     align-items: left;
     margin: auto;
-    margin-top: 30px;
-    width: 50%;
+    margin-top: 70px;
+    width: 55%;
     border-radius: 10px;
-    background-color: #78586F;
+    background-color: #06070E;
+    color: white;
     font-size: 1em;
+    box-shadow: 0 0 10px #06070E,
+                0 0 25px #06070E;
 }
-
+#commentaires h2{
+    color: rgba(144, 238, 144, 0.796);
+}
+#commentaires p{
+    text-align: justify;
+}
 .message {
     margin-left: 10%;
 }
