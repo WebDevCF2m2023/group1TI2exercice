@@ -1,16 +1,38 @@
 <?php
 
-// Chargement des dépendances
+require_once "../config.php";
 
-// Connexion à la base de donnée
+require_once "../Modeles/informationsModel.php";
 
-// Si le formulaire a été envoyé
 
-    // On insert dans la table `informations` si valide
+try {
+    
+    $db = new PDO(MY_DB_DRIVER . ":host=" . MY_DB_HOST . ";dbname=" . MY_DB_NAME . ";charset=" . MY_DB_CHARSET . ";port=" . MY_DB_PORT, MY_DB_LOGIN, MY_DB_PWD);
+} catch (Exception $e) {
+    die($e->getMessage());
+}
 
-// on récupère toutes les entrées de la table
-// `informations`
 
-// on charge le template qui affiche la vue
 
-// on ferme la connexion 
+if (isset ($_POST['themail'], $_POST['themessage'])) {
+
+    
+    $insert = addInformations($db, $_POST['themail'], $_POST['themessage']);
+    
+    if ($insert) {
+        
+        header("Location: ./");
+        exit();
+    } else {
+        
+        $message = "Erreur lors de l'insertion";
+    }
+}
+
+
+$informations = getInformations($db);
+
+
+include_once "../Vues/informations.vue.html.php";
+
+$db_connect = null;
