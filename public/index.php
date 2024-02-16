@@ -1,16 +1,31 @@
 <?php
 
-// Chargement des dépendances
 
-// Connexion à la base de donnée
+require_once "../config.php";
+require_once "../Modeles/informationsModel.php";
 
-// Si le formulaire a été envoyé
+try {
+    $db = new PDO(MY_DB_DRIVER . ":host=" . MY_DB_HOST . ";dbname=" . MY_DB_NAME . ";charset=" . MY_DB_CHARSET . ";port=" . MY_DB_PORT, MY_DB_LOGIN, MY_DB_PWD);
+} catch (Exception $e) {
+    die($e->getMessage());
+}
 
-    // On insert dans la table `informations` si valide
+if (isset($_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate'])) {
 
-// on récupère toutes les entrées de la table
-// `informations`
+    $insert = addInformations($db, $_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate']);
+  //      var_dump($insert);
+    if ($insert) {
+        header("Location: ./");
+        die();
+    } else { 
+        $message = "Désole, il y à un problème avec l'insertion. ";
+    }
+}
+    $getData = getInformations($db);
 
-// on charge le template qui affiche la vue
+    include "../Vues/informations.vue.html.php";
 
-// on ferme la connexion 
+$db = null;
+
+// faut il aussi fermer $getData et $insert??
+
