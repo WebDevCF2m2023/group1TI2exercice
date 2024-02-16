@@ -1,5 +1,5 @@
 <?php
-
+$messageERR = "";
 
 require_once "../config.php";
 require_once "../Modeles/informationsModel.php";
@@ -13,12 +13,12 @@ try {
 if (isset($_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate'])) {
 
     $insert = addInformations($db, $_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate']);
-  //      var_dump($insert);
+
     if ($insert) {
         header("Location: ./");
         die();
     } else { 
-        $message = "Désole, il y à un problème avec l'insertion. ";
+        $messageERR = "Désole, il y à un problème avec l'insertion. ";
     }
 }
     $getData = getInformations($db);

@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+    <link rel="stylesheet" href="/css/MyCSS.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informations</title>
 </head>
 <body>
-    <p>Got this far</p>
+
     <section id="display">
-        <?php 
-        var_dump($getData);
-            foreach($getData as $data):
-        ?>
-        <div class="displayInfo">
-            <div>
-                <p><?= $data["themail"] ?></p>
-                <p><?=date("Y-m-d", strtotime($data["thedate"]))?></p>
-    
-            </div>
-            <p><?= $data["themessage"] ?></p>
+    <?php 
+
+
+    ?>
+<div class="displayInfo">
+<?php foreach ($getData as $datas) : ?>
+            <div class="message"><hr>
+                <h4><?= $datas["thedate"] ?></h2>
+                
+                <p><?= $datas["themessage"] ?></p>
+
+                            </div>
+<?php
+    endforeach;
+
+    ?>
+    <p id="messageErr"><?= $messageERR ?></p>
+    <form action="./" method="post">
+        <div class="holder">
+            <label for="email">Email</label>
+            <input type="email" name="mail" id="mail">
         </div>
-        <?php
-            endforeach;
-            var_dump($data["themessage"]);
-            ?>
+            
+        <div class="holder">
+            <label for="message">Votre Message</label>
+            <textarea name="message" id="message"></textarea>
+        </div>
+        <div class="holder">
+            <input type="submit" value="Envoyez votre message">
+        </div>
+    </form>
+</div>
 </body>
 </html> 
