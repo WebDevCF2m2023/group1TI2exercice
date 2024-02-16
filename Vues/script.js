@@ -6,7 +6,7 @@ function validateForm(e){
     var age = currentYear - yearBirthday ;
 
 
-    var password = document.getElementById('passWord').value;
+    var password = document.getElementById('password').value;
     var lengthCheck = password.length >= 8;
     var uppercaseCheck = /[A-Z]/.test(password);
     var numberCheck = /\d/.test(password);

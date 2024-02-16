@@ -37,7 +37,7 @@
                 </fieldset>
             </div>
             <div id="laLangue">
-                <label for="langue">Langue :</label>
+                <label for="langue">Langue</label>
                 <select name="langue" id="langue">
                     <option value="FR">Français</option>
                     <option value="NL">Néerlandais</option>

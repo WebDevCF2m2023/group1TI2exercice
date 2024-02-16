@@ -21,7 +21,7 @@ if (isset ($_POST['themail'], $_POST['themessage'])) {
     
     if ($insert) {
         
-        header("Location: ./r");
+        header("Location: ./");
         exit();
     } else {
         
