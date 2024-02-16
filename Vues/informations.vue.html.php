@@ -89,6 +89,6 @@
         ?>
     </section>
     
-    <script src="script.js"></script>
+    <script src="../css/script.js"></script>
 </body>
 </html>
