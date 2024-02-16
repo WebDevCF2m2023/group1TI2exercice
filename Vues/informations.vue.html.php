@@ -15,6 +15,7 @@
         <div class="displayInfo">
             <div>
                 <p><?= $data["themail"] ?></p>
+                <p><?=date("Y-m-d", strtotime($data["thedate"]))?></p>
     
             </div>
             <p><?= $data["themessage"] ?></p>
