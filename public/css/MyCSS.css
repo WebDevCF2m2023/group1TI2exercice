@@ -1,1 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(245, 245, 245, 0.7);
+}
 
+nav {
+    background-color: transparent;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #06070E;
+
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    margin: 30px;
+
+}
+
+li a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+/*Ajoute une bordure rouge en dessous des liens li*/
+li a:hover {
+    border-bottom: 2px solid lightgreen;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 120px;
+    height: 15em;
+    width: 20em;
+    border-radius: 25px;
+    background-color: #06070E;
+    color: white;
+    font-size: 1.5em;
+    box-shadow: 0 0 10px #06070E,
+                0 0 25px #06070E;
+}
+#message{
+    background-color: hsl(274, 3%, 50%);
+    width: 70%;
+    border-radius: 10px;
+}
+label{
+    margin-bottom: 15px;
+}
+.bloc {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10px 0;
+}
+
+.bloc>input {
+   background-color: #7F7B82;
+    width: 70%;
+    border-radius: 10px;
+}
+
+
+input[type=submit] {
+    cursor: pointer;
+    align-self: center;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    color: #06070E;
+    background-color: #C2B8B2;
+    margin-top: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: lightgreen;
+    color: #06070E;
+}
+
+#commentaires {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin: auto;
+    margin-top: 70px;
+    width: 55%;
+    border-radius: 10px;
+    background-color: #06070E;
+    color: white;
+    font-size: 1em;
+    box-shadow: 0 0 10px #06070E,
+                0 0 25px #06070E;
+}
+#commentaires h2{
+    color: rgba(144, 238, 144, 0.796);
+}
+#commentaires p{
+    text-align: justify;
+}
+.message {
+    margin-left: 10%;
+}
+
+#erreur-message {
+    text-align: center;
+    color: #d90429;
+    font-size: 1.1em;
+}
