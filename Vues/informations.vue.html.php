@@ -26,15 +26,15 @@
 
     ?>
     <p id="messageErr"><?= $messageERR ?></p>
-    <form action="./" method="post">
+    <form action="" method="POST">
         <div class="holder">
-            <label for="email">Email</label>
-            <input type="email" name="mail" id="mail">
+            <label for="themail">Email</label>
+            <input type="email" name="themail" id="mail">
         </div>
             
         <div class="holder">
-            <label for="message">Votre Message</label>
-            <textarea name="message" id="message"></textarea>
+            <label for="themessage">Votre Message</label>
+            <textarea name="themessage" id="message"></textarea>
         </div>
         <div class="holder">
             <input type="submit" value="Envoyez votre message">

@@ -10,20 +10,21 @@ try {
     die($e->getMessage());
 }
 
-if (isset($_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate'])) {
+if (isset($_POST['themail'], $_POST['themessage'])) {
 
-    $insert = addInformations($db, $_GET['theid'], $_GET['themail'], $_GET['themessage'], $_GET['thedate']);
+    $insert = addInformations($db, $_POST['themail'], $_POST['themessage']);
 
     if ($insert) {
         header("Location: ./");
-        die();
+        exit();
     } else { 
+        var_dump($insert);
         $messageERR = "Désole, il y à un problème avec l'insertion. ";
     }
+
 }
     $getData = getInformations($db);
-
-    include "../Vues/informations.vue.html.php";
+    include_once "../Vues/informations.vue.html.php";
 
 $db = null;
 
