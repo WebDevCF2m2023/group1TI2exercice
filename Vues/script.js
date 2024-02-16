@@ -16,6 +16,7 @@ function validateForm(e){
         e.preventDefault();
         alert (" Vous n'êtes pas majeur");
     }
+      
     if  (age > 110){
         e.preventDefault();
         alert (" Vous avez dépassé l'âge");
